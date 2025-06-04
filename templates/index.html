@@ -14,7 +14,7 @@
       <p class="subtitle">Enter your agricultural data for AI-powered yield analysis</p>
     </div>
 
-    <form method="POST" action="/predict" id="farmForm">
+    <form method="POST" action="/" id="farmForm">
       <div class="form-grid">
         <div class="form-group soil-ph">
           <label for="soil_ph">Soil pH Level</label>
@@ -53,9 +53,11 @@
 
         <div class="form-group crop-yield">
           <label for="Crop_Yield_ton">Expected Crop Yield (ton)</label>
-          <input type="text" name="Crop_Yield_ton" id="crop_yield" placeholder="Enter expected yield" required>
+          <input type="text" name="Crop_Yield_ton" id="crop_yield" required>
         </div>
       </div>
+      
+      
 
       <div class="submit-container">
         <input type="submit" value="Analyze & Predict" id="submitBtn">
