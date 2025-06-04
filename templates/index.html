@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agriculture Model - Farm Data Prediction</title>
+  <link rel="stylesheet" href="./index.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h2>Farm Data Prediction</h2>
+      <p class="subtitle">Enter your agricultural data for AI-powered yield analysis</p>
+    </div>
+
+    <form method="POST" action="/predict" id="farmForm">
+      <div class="form-grid">
+        <div class="form-group soil-ph">
+          <label for="soil_ph">Soil pH Level</label>
+          <input type="text" name="Soil_pH" id="soil_ph" placeholder="Enter pH value (0-14)" required>
+        </div>
+
+        <div class="form-group soil-moisture">
+          <label for="soil_moisture">Soil Moisture (%)</label>
+          <input type="text" name="Soil_Moisture" id="soil_moisture" placeholder="Enter moisture percentage" required>
+        </div>
+
+        <div class="form-group temperature">
+          <label for="temperature">Temperature (°C)</label>
+          <input type="text" name="Temperature_C" id="temperature" placeholder="Enter temperature in Celsius" required>
+        </div>
+
+        <div class="form-group rainfall">
+          <label for="rainfall">Rainfall (mm)</label>
+          <input type="text" name="Rainfall_mm" id="rainfall" placeholder="Enter rainfall in millimeters" required>
+        </div>
+
+        <div class="form-group crop-type">
+          <label for="crop_type">Crop Type</label>
+          <input type="text" name="Crop_Type" id="crop_type" placeholder="Enter crop variety" required>
+        </div>
+
+        <div class="form-group fertilizer">
+          <label for="fertilizer">Fertilizer Usage (kg)</label>
+          <input type="text" name="Fertilizer_Usage_kg" id="fertilizer" placeholder="Enter fertilizer amount" required>
+        </div>
+
+        <div class="form-group pesticide">
+          <label for="pesticide">Pesticide Usage (kg)</label>
+          <input type="text" name="Pesticide_Usage_kg" id="pesticide" placeholder="Enter pesticide amount" required>
+        </div>
+
+        <div class="form-group crop-yield">
+          <label for="crop_yield">Expected Crop Yield (ton)</label>
+          <input type="text" name="Crop_Yield_ton" id="crop_yield" placeholder="Enter expected yield" required>
+        </div>
+      </div>
+
+      <div class="submit-container">
+        <input type="submit" value="Analyze & Predict" id="submitBtn">
+      </div>
+    </form>
+
+    {% if prediction %}
+    <div class="prediction-result">
+      <h3>🎯 Prediction Result: {{ prediction }}</h3>
+    </div>
+    {% endif %}
+  </div>
+
+  <script>
+    // Add form submission animation
+    document.getElementById('farmForm').addEventListener('submit', function() {
+      const submitBtn = document.getElementById('submitBtn');
+      submitBtn.classList.add('loading');
+      submitBtn.value = 'Analyzing...';
+    });
+
+    // Add input validation and formatting
+    document.querySelectorAll('input[type="text"]').forEach(input => {
+      input.addEventListener('input', function() {
+        // Add subtle animation on input
+        this.style.transform = 'scale(1.02)';
+        setTimeout(() => {
+          this.style.transform = 'scale(1)';
+        }, 150);
+      });
+    });
+  </script>
+</body>
+</html>
