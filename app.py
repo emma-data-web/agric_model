@@ -23,13 +23,13 @@ def index():
     if request.method == "POST":
         try:
             # Extract features from the form
-            soil_ph = float(request.form.get("soil_ph"))
-            soil_moisture = float(request.form.get("soil_moisture"))
-            temperature = float(request.form.get("temperature"))
-            rainfall = float(request.form.get("rainfall"))
-            crop_type = request.form.get("crop_type")
-            fertilizer = float(request.form.get("fertilizer"))
-            pesticide = float(request.form.get("pesticide"))
+            soil_ph = float(request.form.get("Soil_pH"))
+            soil_moisture = float(request.form.get("Soil_Moisture"))
+            temperature = float(request.form.get("Temperature_C"))
+            rainfall = float(request.form.get("Rainfall_mm"))
+            crop_type = request.form.get("Crop_Type")
+            fertilizer = float(request.form.get("Fertilizer_Usage_kg"))
+            pesticide = float(request.form.get("Pesticide_Usage_kg"))
             Crop_Yield_ton = float(request.form.get("Crop_Yield_ton"))
             
             # Prepare input data
