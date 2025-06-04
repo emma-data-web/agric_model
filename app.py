@@ -30,14 +30,15 @@ def index():
             crop_type = request.form.get("crop_type")
             fertilizer = float(request.form.get("fertilizer"))
             pesticide = float(request.form.get("pesticide"))
+            Crop_Yield_ton = float(request.form.get("Crop_Yield_ton"))
             
             # Prepare input data
             input_data = pd.DataFrame([[
                 soil_ph, soil_moisture, temperature, rainfall,
-                crop_type, fertilizer, pesticide
+                crop_type, fertilizer, pesticide, Crop_Yield_ton
             ]], columns=[
                 'Soil_pH', 'Soil_Moisture', 'Temperature_C', 'Rainfall_mm',
-                'Crop_Type', 'Fertilizer_Usage_kg', 'Pesticide_Usage_kg'
+                'Crop_Type', 'Fertilizer_Usage_kg', 'Pesticide_Usage_kg','Crop_Yield_ton'
             ])
 
             # Transform and predict
@@ -58,7 +59,7 @@ def predict():
 
         input_data = pd.DataFrame([data], columns=[
             'Soil_pH', 'Soil_Moisture', 'Temperature_C', 'Rainfall_mm',
-            'Crop_Type', 'Fertilizer_Usage_kg', 'Pesticide_Usage_kg'
+            'Crop_Type', 'Fertilizer_Usage_kg', 'Pesticide_Usage_kg','Crop_Yield_ton'
         ])
 
         input_processed = preprocessor.transform(input_data)
